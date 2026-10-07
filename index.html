@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecno Iniciación</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         PANTALLA DE BIENVENIDA
+    ========================== -->
+    <section id="welcomeScreen" class="screen welcome-screen">
+
+        <div class="welcome-card">
+
+            <div class="welcome-robot" id="welcomeRobot">
+                🤖
+            </div>
+
+            <div class="welcome-content">
+
+                <p class="small-title">TECNO INICIACIÓN</p>
+
+                <h1>¡Hola! 👋</h1>
+
+                <h2>Aprendé tecnología desde cero</h2>
+
+                <p class="welcome-description">
+                    Un espacio pensado para aprender computación
+                    de manera sencilla, divertida y paso a paso.
+                </p>
+
+                <div class="robot-message">
+                    <span id="welcomeRobotMessage">
+                        ¡Hola! Soy TecnoBot. Te voy a acompañar durante todo el curso.
+                    </span>
+
+                    <button id="welcomeRobotListen" class="listen-button">
+                        🔊 Escuchar
+                    </button>
+                </div>
+
+                <input
+                    type="text"
+                    id="userName"
+                    class="name-input"
+                    placeholder="Escribí tu nombre"
+                    maxlength="30"
+                >
+
+                <p id="profileMessage" class="profile-message">
+                    Primero elegí tu perfil.
+                </p>
+
+                <!-- PERFILES -->
+                <div class="profile-grid">
+
+                    <button
+                        type="button"
+                        class="profile-card profile-ninos"
+                        data-profile="ninos">
+
+                        <span class="profile-icon">🤖</span>
+                        <strong>Niños</strong>
+                        <small>Aprendé jugando</small>
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="profile-card profile-adolescentes"
+                        data-profile="adolescentes">
+
+                        <span class="profile-icon">💻</span>
+                        <strong>Adolescentes</strong>
+                        <small>Aprendé de forma dinámica</small>
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="profile-card profile-adultos"
+                        data-profile="adultos">
+
+                        <span class="profile-icon">🧑‍💻</span>
+                        <strong>Adultos</strong>
+                        <small>Aprendé paso a paso</small>
+
+                    </button>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="startButton"
+                    class="main-button"
+                    disabled>
+
+                    🚀 Comenzar
+
+                </button>
+
+                <div id="resumeBox" class="resume-box hidden">
+
+                    <p id="resumeText"></p>
+
+                    <button
+                        type="button"
+                        id="resumeButton"
+                        class="secondary-button">
+
+                        ▶ Continuar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SELECCIÓN DE NIVEL
+    ========================== -->
+    <section id="levelScreen" class="screen hidden">
+
+        <div class="level-container">
+
+            <button
+                type="button"
+                id="backToWelcome"
+                class="back-button">
+
+                ← Volver
+
+            </button>
+
+            <div class="level-header">
+
+                <div id="levelCharacter" class="big-character">
+                    🤖
+                </div>
+
+                <p id="levelPill" class="pill">
+                    Elegí tu nivel
+                </p>
+
+                <h1 id="levelTitle">
+                    ¿Qué nivel querés comenzar?
+                </h1>
+
+                <p id="levelMessage">
+                    Elegí el nivel que mejor se adapte a vos.
+                </p>
+
+            </div>
+
+            <div id="levelCards" class="level-grid">
+
+                <button
+                    type="button"
+                    class="level-card"
+                    data-level="facil">
+
+                    <span class="level-icon">🌱</span>
+
+                    <h2>Fácil</h2>
+
+                    <p>
+                        Para comenzar desde cero.
+                    </p>
+
+                </button>
+
+                <button
+                    type="button"
+                    class="level-card"
+                    data-level="intermedio">
+
+                    <span class="level-icon">⭐</span>
+
+                    <h2>Intermedio</h2>
+
+                    <p>
+                        Para seguir practicando.
+                    </p>
+
+                </button>
+
+                <button
+                    type="button"
+                    class="level-card"
+                    data-level="dificil">
+
+                    <span class="level-icon">🚀</span>
+
+                    <h2>Difícil</h2>
+
+                    <p>
+                        Para poner a prueba tus conocimientos.
+                    </p>
+
+                </button>
+
+            </div>
+
+            <button
+                type="button"
+                id="enterCourseButton"
+                class="main-button"
+                disabled>
+
+                Entrar al curso 🚀
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PANEL PRINCIPAL
+    ========================== -->
+    <section id="mainScreen" class="screen hidden">
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="small-title">
+                    TECNO INICIACIÓN
+                </p>
+
+                <h1>
+                    ¡Hola, <span id="welcomeName">estudiante</span>! 👋
+                </h1>
+
+                <p id="profileDescription">
+                    Preparémonos para aprender.
+                </p>
+
+            </div>
+
+            <div class="header-actions">
+
+                <span id="profilePill" class="pill">
+                    Perfil
+                </span>
+
+                <span id="levelPill" class="pill">
+                    Nivel
+                </span>
+
+                <button
+                    type="button"
+                    id="changeRouteButton"
+                    class="secondary-button">
+
+                    Cambiar ruta
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <main class="dashboard">
+
+            <!-- ROBOT -->
+            <div class="robot-dashboard-card">
+
+                <div
+                    id="dashboardCharacter"
+                    class="dashboard-character">
+
+                    🤖
+
+                </div>
+
+                <div>
+
+                    <h2>
+                        TecnoBot dice:
+                    </h2>
+
+                    <p id="robotMessage">
+                        ¡Vamos a aprender algo nuevo!
+                    </p>
+
+                    <button
+                        type="button"
+                        id="robotListenButton"
+                        class="listen-button">
+
+                        🔊 Escuchar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESO -->
+            <div class="progress-card">
+
+                <div class="progress-top">
+
+                    <div>
+
+                        <h2>Tu progreso</h2>
+
+                        <p id="progressText">
+                            0 de 7 módulos completados
+                        </p>
+
+                    </div>
+
+                    <strong id="progressPercent">
+                        0%
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+                    <div
+                        id="progressFill"
+                        class="progress-fill">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- MÓDULOS -->
+            <section>
+
+                <div class="section-title">
+
+                    <div>
+                        <h2>Mis módulos</h2>
+                        <p>Avanzá paso a paso.</p>
+                    </div>
+
+                    <button
+                        type="button"
+                        id="listenDashboardButton"
+                        class="listen-button">
+
+                        🔊 Escuchar
+
+                    </button>
+
+                </div>
+
+                <div id="modulesGrid" class="modules-grid">
+                    <!-- JavaScript genera los módulos -->
+                </div>
+
+            </section>
+
+
+            <!-- CONSEJO -->
+            <div id="profileTip" class="tip-card">
+                💡 Consejo de TecnoBot
+            </div>
+
+
+            <div class="dashboard-actions">
+
+                <button
+                    type="button"
+                    id="restartLevelButton"
+                    class="secondary-button">
+
+                    🔄 Reiniciar nivel
+
+                </button>
+
+                <button
+                    type="button"
+                    id="resetProgressButton"
+                    class="danger-button">
+
+                    🗑️ Borrar progreso
+
+                </button>
+
+            </div>
+
+        </main>
+
+    </section>
+
+
+    <!-- =========================
+         PANTALLA DEL MÓDULO
+    ========================== -->
+    <section id="moduleScreen" class="screen hidden">
+
+        <div class="module-container">
+
+            <button
+                type="button"
+                id="backToDashboard"
+                class="back-button">
+
+                ← Volver a módulos
+
+            </button>
+
+            <div class="module-header">
+
+                <div
+                    id="moduleIcon"
+                    class="module-icon">
+
+                    💻
+
+                </div>
+
+                <p id="moduleNumber" class="small-title">
+                    MÓDULO 1
+                </p>
+
+                <h1 id="moduleTitle">
+                    Primeros pasos
+                </h1>
+
+                <p id="moduleIntro">
+                    Aprendé los conceptos básicos.
+                </p>
+
+                <button
+                    type="button"
+                    id="listenModuleButton"
+                    class="listen-button">
+
+                    🔊 Escuchar
+
+                </button>
+
+            </div>
+
+
+            <!-- MENSAJE ROBOT -->
+            <div class="module-robot">
+
+                <div class="module-robot-character">
+                    🤖
+                </div>
+
+                <div>
+
+                    <strong>TecnoBot</strong>
+
+                    <p id="moduleRobotMessage">
+                        ¡Vos podés hacerlo!
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PREGUNTA -->
+            <div id="questionArea" class="question-area">
+                <!-- JavaScript coloca aquí la pregunta -->
+            </div>
+
+
+            <!-- FEEDBACK -->
+            <div
+                id="answerFeedback"
+                class="answer-feedback hidden">
+
+                <div id="feedbackIcon">
+                    🎉
+                </div>
+
+                <div>
+
+                    <h2 id="feedbackTitle">
+                        ¡Muy bien!
+                    </h2>
+
+                    <p id="feedbackMessage">
+                        Respuesta correcta.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="retryButton"
+                    class="main-button">
+
+                    Continuar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MODAL GUARDADO
+    ========================== -->
+    <div
+        id="saveModal"
+        class="modal hidden">
+
+        <div class="modal-card">
+
+            <div class="modal-icon">
+                💾
+            </div>
+
+            <h2>¡Progreso guardado!</h2>
+
+            <p>
+                Tu avance se guarda automáticamente en este dispositivo.
+            </p>
+
+            <button
+                type="button"
+                id="closeSaveModal"
+                class="main-button">
+
+                Continuar
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MODAL CONFIRMACIÓN
+    ========================== -->
+    <div
+        id="confirmModal"
+        class="modal hidden">
+
+        <div class="modal-card">
+
+            <div class="modal-icon">
+                ⚠️
+            </div>
+
+            <h2 id="confirmTitle">
+                ¿Estás seguro?
+            </h2>
+
+            <p id="confirmMessage">
+                Esta acción cambiará tu progreso.
+            </p>
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    id="cancelConfirmButton"
+                    class="secondary-button">
+
+                    Cancelar
+
+                </button>
+
+                <button
+                    type="button"
+                    id="acceptConfirmButton"
+                    class="danger-button">
+
+                    Confirmar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
